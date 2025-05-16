@@ -1,4 +1,3 @@
-// pages/QAPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -75,42 +74,50 @@ const QAPage = () => {
   };
 
   return (
-    <div className="min-h-screen p-4 text-white bg-gray-950 md:p-8">
-      <div className="max-w-lg mx-auto">
-        <div className="mb-6 bg-gray-700 rounded-full h-2.5">
-          <div 
-            className="bg-blue-500 h-2.5 rounded-full transition-all duration-300" 
-            style={{ width: `${progressPercentage}%` }}
-          ></div>
-        </div>
+    <div className="flex items-center justify-center min-h-screen p-6 font-sans text-white bg-gradient-to-tr from-purple-900 via-indigo-900 to-black md:p-12">
+      <div className="w-full max-w-lg p-8 bg-gray-900 border border-purple-700 shadow-2xl bg-opacity-90 rounded-3xl backdrop-blur-lg">
         
-        <div className="p-6 overflow-hidden bg-gray-800 shadow-xl bg-opacity-80 backdrop-blur-sm rounded-xl md:p-8">
-          <h2 className="mb-6 text-2xl font-bold">{currentQuestion.text}</h2>
-          
-          <div className="space-y-3">
-            {currentQuestion.options.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleOptionSelect(option)}
-                className="flex items-center w-full px-4 py-3 text-left transition-all duration-200 bg-gray-700 rounded-lg md:px-6 md:py-4 hover:bg-gray-600"
-              >
-                <span className="mr-3 text-xl">{option.split(' ')[0]}</span>
-                <span>{option.split(' ').slice(1).join(' ')}</span>
-              </button>
-            ))}
-          </div>
-          
-          <div className="flex items-center justify-between mt-6 text-sm text-gray-300">
-            <span>Question {currentQuestionIndex + 1} of {questions.length}</span>
-            {currentQuestionIndex > 0 && (
-              <button 
-                onClick={() => setCurrentQuestionIndex(currentQuestionIndex - 1)}
-                className="text-blue-400 hover:text-blue-300"
-              >
-                ← Previous
-              </button>
-            )}
-          </div>
+        {/* Progress Bar */}
+        <div className="w-full h-3 mb-8 overflow-hidden bg-gray-700 rounded-full shadow-inner">
+          <div 
+            className="h-full transition-all duration-500 ease-in-out rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-400"
+            style={{ width: `${progressPercentage}%` }}
+          />
+        </div>
+
+        {/* Question Text */}
+        <h2 className="mb-10 text-3xl font-extrabold leading-snug text-center drop-shadow-lg">
+          {currentQuestion.text}
+        </h2>
+
+        {/* Options */}
+        <div className="space-y-5">
+          {currentQuestion.options.map((option, index) => (
+            <button
+              key={index}
+              onClick={() => handleOptionSelect(option)}
+              className="group flex items-center w-full rounded-xl bg-gradient-to-tr from-gray-800 via-gray-900 to-black shadow-lg hover:shadow-xl focus:shadow-xl focus:outline-none transition-transform transform hover:scale-[1.03] focus:scale-[1.03] p-5"
+              aria-label={`Answer option: ${option}`}
+            >
+              <span className="mr-6 text-4xl">{option.split(' ')[0]}</span>
+              <span className="text-lg font-semibold tracking-wide select-none">
+                {option.split(' ').slice(1).join(' ')}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        {/* Navigation */}
+        <div className="flex items-center justify-between mt-12 text-sm text-gray-400 select-none">
+          <span>Question {currentQuestionIndex + 1} / {questions.length}</span>
+          {currentQuestionIndex > 0 && (
+            <button
+              onClick={() => setCurrentQuestionIndex(currentQuestionIndex - 1)}
+              className="text-purple-400 transition-colors hover:text-purple-300"
+            >
+              ← Previous
+            </button>
+          )}
         </div>
       </div>
     </div>

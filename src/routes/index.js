@@ -12,6 +12,10 @@ import MoodResult from "../pages/MoodResult";
 import QuizPage from "../pages/QuizPage";
 import RecommendationResult from "../pages/RecommendationResult";
 
+import GenreDetailsPage from "../pages/GenreDetailsPage";
+import LanguagePage from "../pages/LanguagePage";
+import YearsPage from "../pages/YearsPage";
+
 
 
 
@@ -60,6 +64,19 @@ const router = createBrowserRouter([
                 path: "recommendation",
                 element: <RecommendationResult/>
             },
+            {
+                path:"/genres/:id",
+                element: <GenreDetailsPage/>
+            },
+            {
+                path: "/language/:langCode",
+                element : <LanguagePage/>
+            },
+            {
+                path:"/year/:year",
+                element : <YearsPage/>
+            }
+           
            
             
         ]

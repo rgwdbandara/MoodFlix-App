@@ -2,8 +2,9 @@ import { MdHomeFilled } from "react-icons/md";
 import { PiTelevisionFill } from "react-icons/pi";
 import { BiSolidMoviePlay } from "react-icons/bi";
 import { IoSearchOutline } from 'react-icons/io5';
-import { FaSmile } from "react-icons/fa"; // Import an icon for Mood Detection
-import { AiOutlineBulb } from "react-icons/ai"; // Import an icon for Recommendations
+import { FaSmile } from "react-icons/fa"; 
+import { AiOutlineBulb } from "react-icons/ai"; 
+import { href } from "react-router-dom";
 
 export const navigation = [
     {
@@ -26,6 +27,8 @@ export const navigation = [
         href: "quiz",
         icons: <AiOutlineBulb />
     },
+    
+
 ];
 
 export const mobileNavigation = [
@@ -40,4 +43,6 @@ export const mobileNavigation = [
         href: "/search",
         icons: <IoSearchOutline /> 
     },
+   
+    
 ];
