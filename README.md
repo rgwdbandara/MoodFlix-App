@@ -4,7 +4,7 @@ MoodFlix is a modern web application that leverages facial emotion recognition a
 
 ## 🚀 Live Demo
 
-Hosted on Vercel: [Visit MoodFlix](#) *(Replace with actual URL)*
+Hosted on Vercelhttps:  //mood-flix-app-1k8h.vercel.app/
 
 ---
 
